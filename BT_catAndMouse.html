@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>catandmouse</title>
+</head>
+<body>
+<script>
+    class Rat{
+        name;
+        weight;
+        speed;
+        status;
+
+
+        constructor(name,weight,speed,status) {
+            this.name=name;
+            this.weight=weight;
+            this.speed=speed;
+            this.status=status;
+
+        }
+        sound(){
+            console.log('squeakkkkk')
+        }
+    }
+    class Cat{
+        name;
+        weight;
+        speed;
+        numberOfMice;
+        constructor(name,weight,speed) {
+            this.name=name;
+            this.weight=weight;
+            this.speed=speed;
+            this.numberOfMice=0
+        }
+        catchMouse(mouse){
+            if(this.speed>mouse.speed){
+                return true
+            }
+        }
+        eat(mouse){
+            if(this.catchMouse(mouse)&&(mouse.status===true)){
+                this.weight+=mouse.weight
+            }
+        }
+    }
+    let cat1= new Cat('Tom',5,30)
+    let mouse1=new Rat('Jerry',1,10,true)
+    let mouse2=new Rat('Mickey',2,12,false)
+    cat1.eat(mouse1)
+    cat1.eat(mouse2)
+    console.log(cat1.weight)
+</script>
+
+</body>
+</html>
